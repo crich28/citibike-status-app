@@ -73,7 +73,7 @@ if __name__ == "__main__":
     
     #Map implementation--->
     #mapdata = pd.read_sql_query(f'SELECT * FROM station_info WHERE "STATION_ID" = {options};', connector)
-    mapdata = pd.read_sql_query('SELECT * FROM station_info ;', connector)
+    mapdata = pd.read_sql_query('SELECT * FROM station_info WHERE  "STATION_ID" = {options} ;', connector)
     mapdata = mapdata.rename(columns={"LATITUDE":"lat","LONGITUDE":"lon"})
-    st.map(mapdata)
+    st.map(mapdata, zoom = 12)
                       
